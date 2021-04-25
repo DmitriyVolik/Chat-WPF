@@ -1,0 +1,32 @@
+﻿<Window x:Class="Chat.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Chat" Height="450" Width="500"
+        MinWidth="300"
+        MinHeight="250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label FontSize="15" FontFamily="Arial" FontWeight="Bold" Content="Логин" HorizontalAlignment="Center" />
+            <TextBox Text="{Binding CurrentLogin}"  MaxLength="20" FontSize="12" Width="150px" Height="20" HorizontalAlignment="Center" />
+            <Label FontSize="15" FontFamily="Arial" FontWeight="Bold" Content="Пароль" HorizontalAlignment="Center" />
+            <PasswordBox Name="MyPasswordBox" MaxLength="20" FontSize="12" Width="150px" Height="20" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <Button Grid.Row="1" FontWeight="Bold" FontSize="15" FontFamily="Arial" Grid.Column="0" Width="100" Height="50"
+                Content="Регистрация" Command="{Binding  RegistrationBtn}" CommandParameter="{Binding ElementName=MyPasswordBox}"/>
+
+        <Button Grid.Column="1" FontWeight="Bold" FontSize="15" FontFamily="Arial" Width="100" Grid.Row="1" Height="50"
+                Content="Вход" Command="{Binding  SignInBtn}" CommandParameter="{Binding ElementName=MyPasswordBox}"/>
+    </Grid>
+</Window>
